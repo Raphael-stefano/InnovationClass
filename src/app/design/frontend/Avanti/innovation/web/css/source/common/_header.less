@@ -1,0 +1,411 @@
+//  Common (styles-m.css)
+//  _____________________________________________
+& when (@media-common =true) {
+
+    .page-header {
+
+        .header.panel .promo-header-message {
+            .lib-css(text-align, center);
+        }
+
+        .header.content{
+            
+            .lib-css(padding, 22px 0);
+            
+
+        }
+
+    }
+
+}
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="max")
+    and
+    (@break =@screen__m) {
+    .page-header {
+        .lib-css(border, none);
+
+        .panel.wrapper{
+            .lib-css(background-color, @theme__color__primary);
+
+            .panel.header{
+                .lib-css(padding, 6px 22px);
+            }
+
+        }
+
+        
+        .header.content{
+            .lib-css(display, flex);
+            .lib-css(align-items, center);
+            .lib-css(position, relative);
+            .lib-css(justify-content, center);
+
+            .action.showcart{
+                .lib-css(width, 25px);
+                .lib-css(height, 24px);
+            }
+
+            .action.showcart::before{
+                content: '';
+                display: block; 
+                width: 100%; 
+                height: 100%;
+                background-image: url('@{baseDir}images/cart.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            .minicart-wrapper{
+                .lib-css(margin, 0);
+                .lib-css(position, absolute);
+                .lib-css(right, 3.75%);
+                .lib-css(transform, translateY(2px));
+            }
+
+
+            .action.nav-toggle{
+                .lib-css(display, block);
+                .lib-css(position, absolute);
+                .lib-css(left, 3.75%);
+                .lib-css(transform, translateY(50%));
+            }
+
+            .action.nav-toggle::before{
+                content: '';
+                display: block; 
+                width: 23px; 
+                height: 21px;
+                background-image: url('@{baseDir}images/menu.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            .logo{
+                .lib-css(margin, 0);
+                .lib-css(width, 148);
+                .lib-css(height, 26);
+            }
+
+            .header.links{
+                .lib-css(display, none);
+            }
+
+            .block.block-search{
+                .lib-css(margin, 0);
+                .lib-css(position, absolute);
+                .lib-css(right, calc(7.75% + 30px));
+
+                .control{
+                    .lib-css(border, none);
+                    .lib-css(margin, 0);
+                    .lib-css(padding, 0);
+                    .lib-css(position, absolute);
+                    .lib-css(top, 240%);
+                    
+                    .lib-css(transform, translateX(calc(-88.5vw + 48px)));
+                }
+
+                .field.search .label::before {
+                    content: '';
+                    display: block; 
+                    width: 100%; 
+                    height: 100%;
+                    background-image: url('@{baseDir}images/lupa.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                    .lib-css(margin, 0);
+                }
+
+                .field.search .label {
+                    .lib-css(height, 18px);
+                    .lib-css(width, 18px);
+                    .lib-css(transform, translateX(50%));
+                }
+
+                .field.search input {
+                    .lib-css(border, none);
+                    .lib-css(margin, 0);
+                    .lib-css(padding, 0);
+                }
+
+                .field.search .label.active {
+                    
+                }
+
+                .field.search input[aria-expanded="true"] {
+                    .lib-css(border, 1px solid @color-form-border);
+                    .lib-css(border-radius, 10px);
+                    .lib-css(padding, 20px);
+                    .lib-css(width, 92.5vw);
+                    .lib-css(margin, 0)
+                }
+            }
+
+            /*.block.block-search{
+                    .lib-css(position, relative);
+                    .lib-css(margin, 0);
+
+                    .control{
+                        .lib-css(border, none);
+                    }
+
+                    #search{
+                        .lib-css(border, 1px solid @color-form-border);
+                        .lib-css(border-radius, 10px);
+                        .lib-css(padding, 20px);
+
+                        .lib-css(position, absolute);
+                        .lib-css(top, 230%);
+                        .lib-css(transform, translateX(-53.5%));
+                        //.lib-css(display, inline-block);
+                        .lib-css(width, 92.5vw);
+                        .lib-css(margin, 0)
+                    }
+
+                    .form.minisearch .field.search .label{
+                        .lib-css(height, 20px);
+                        .lib-css(width, 20px);
+                    }
+
+                    .form.minisearch .field.search .label::before{
+                        content: '';
+                        display: block; 
+                        width: 100%; 
+                        height: 100%;
+                        background-image: url('@{baseDir}images/lupa.svg');
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                        transform: translateX(200%);
+                    }
+                }*/
+
+
+        }
+
+        
+
+    }
+
+    
+
+}
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break)
+    when
+    (@extremum ="min")
+    and
+    (@break =@screen__m) {
+    .page-wrapper{
+        .lib-css(width, 100%);
+        .lib-css(max-width, none);
+    }
+    .page-header {
+        .lib-css(width, 100%);
+
+         .panel.wrapper {
+            .lib-css(background-color, @theme__color__primary);
+
+            .panel.wrapper{
+                .lib-css(margin, 0);
+            }
+        }
+        .header.content{
+
+            // LEMBRAR DE USAR A PROPRIEDADE ORDER DO FLEX PARA ALTERAR A ORDEM DOS COMPONENTES SEM TER QUE MEXER NO XML
+
+            &::before{
+                .lib-css(display, none);
+            }
+
+            &::after{
+                .lib-css(display, none);
+            }
+
+            .lib-css(display, flex);
+            .lib-css(align-items, center);
+            .lib-css(justify-content, space-between);
+            .lib-css(width, 100%);
+            .lib-css(max-width, none);
+            .lib-css(padding-left, 6%);
+            .lib-css(padding-right, 6%);
+
+            .lib-css(margin, 0);
+
+            .compare.wrapper{
+                .lib-css(width, 12%);
+            }
+
+            .minicart-wrapper{
+                .lib-css(margin, 0);
+                .lib-css(order, 4);
+            }
+
+            .action.showcart{
+                .lib-css(width, 30px);
+                .lib-css(height, 30px);
+            }
+
+            .action.showcart::before{
+                content: '';
+                display: block; 
+                width: 100%; 
+                height: 100%;
+                background-image: url('@{baseDir}images/cart.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+
+            .header.links{
+                .lib-css(display, flex);
+                .lib-css(align-items, center);
+                .lib-css(list-style, none);
+                .lib-css(margin, 0);
+                .lib-css(padding, 0);
+
+                .lib-css(order, 3);
+                
+                .greet.welcome{
+                    .lib-css(display, none);
+                }
+
+                a{
+                    .lib-css(color, black);
+                    .lib-css(font-family, @font-family-name__base);
+                };
+                    
+
+                .not-logged-in{
+                    .lib-css(display, none);
+                }
+
+                &::before{
+                    content: '';
+                    display: inline-block; 
+                    width: 20px; 
+                    height: 24px;
+                    background-image: url('@{baseDir}images/user.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+
+                li{
+                    .lib-css(margin, 0 0 0 4px);
+                    .lib-css(font-size, 1.1em);
+                    .lib-css(color, black);
+                }
+
+                /*.link.authorization-link[data-label]::after {
+                    content: attr(data-label);
+                    color: black;
+                    display: inline-block;
+                }*/
+                
+            }
+
+            .block.block-search{
+                .lib-css(width, 47%);
+                .lib-css(padding, 0);
+
+                #search{
+                    .lib-css(border, 1px solid @color-form-border);
+                    .lib-css(border-radius, 10px);
+                    .lib-css(padding, 20px);
+                    .lib-css(height, 38px);
+                    .lib-css(box-sizing, border-box);
+                }
+
+                .action.search{
+                    .lib-css(height, 100%);
+                    .lib-css(width, 30px);
+                }
+
+                .action.search::before{
+                    content: '';
+                    display: block; 
+                    width: 80%; 
+                    height: 80%;
+                    background-image: url('@{baseDir}images/lupa.svg');
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+            }
+
+        }
+    }
+    .logo {
+        .lib-css(margin, 0);
+        .lib-css(width, 152px);
+
+        a{
+            .lib-css(width, 152px);
+        }
+
+    }
+    .section-item-content.nav-sections-item-content{
+        .lib-css(background-color, white);
+        .navigation{
+            .lib-css(background-color, transparent);
+            .lib-css(padding, 0 6%);
+            .lib-css(margin, 0);
+            .lib-css(width, 100%);
+            .lib-css(max-width, none);
+        }
+        #ui-id-1{
+            .lib-css(padding, 0);
+        }
+    }
+    .navigation ul{
+        .lib-css(display, flex);
+        .lib-css(justify-content, space-between);
+    }
+    .custom-featured-section {
+        .lib-css(text-align, center);
+        .lib-css(padding, 30px 0);
+        h1 {
+            .lib-css(font-size, 28px);
+            .lib-css(margin-bottom, 20px);
+            .lib-css(color, #000);
+            .lib-css(font-weight, bold);
+        }
+        .featured-items {
+            .lib-css(display, flex);
+            .lib-css(justify-content, space-between);
+            // .lib-css(gap, 40px);
+            .lib-css(flex-wrap, wrap);
+            .featured-item {
+                .lib-css(text-align, center);
+                img {
+                    .lib-css(margin-bottom, 10px);
+                }
+                a {
+                    .lib-css(display, block);
+                    .lib-css(font-size, 14px);
+                    .lib-css(color, #000);
+                    .lib-css(text-decoration, none);
+                    .lib-css(text-decoration, none);
+                    &:hover {
+                        .lib-css(text-decoration, underline);
+                    }
+                }
+            }
+        }
+    }
+    .page-footer {
+        .lib-css(background-color,#F5F5F5);
+        .lib-css(padding,64px 0);
+    }
+}

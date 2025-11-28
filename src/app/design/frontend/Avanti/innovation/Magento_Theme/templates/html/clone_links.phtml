@@ -1,0 +1,42 @@
+<?php
+/**
+* Copyright © Magento, Inc. All rights reserved.
+* See COPYING.txt for license details.
+*/
+?>
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+
+/**
+* Category view template
+*
+* @var $block \Magento\Framework\View\Element\Template
+*/
+
+
+?>
+
+    <ul class="cloned links">
+
+        <li class="greet welcome" data-bind="scope: 'customer'">
+                <!-- ko if: customer().fullname  --><!-- /ko -->
+                <!-- ko ifnot: customer().fullname  -->
+                <span class="not-logged-in" data-bind="text: 'Mensagem padrão de boas-vindas!'">Mensagem padrão de boas-vindas!</span>
+                        <!-- /ko -->
+        </li>
+                
+        <!-- BLOCK customer --><!-- /BLOCK customer -->
+        <li class="link authorization-link" data-label="ou">
+            <a href="https://magento.innovation/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLmlubm92YXRpb24v/">Entrar</a>
+        </li>
+
+        <li class="cloned-links-or">
+            ou
+        </li>
+
+        <li>
+            <a href="https://magento.innovation/customer/account/create/" id="idbwzr3ffr">Criar Conta</a>
+        </li>
+
+    </ul>
