@@ -1,11 +1,3 @@
-<?php
-$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$customerSession = $objectManager->get(\Magento\Customer\Model\Session::class);
-
-// Só mostrar se NÃO estiver logado
-if (!$customerSession->isLoggedIn()):
-?>
 <li class="header-links-or">
     <?= __('or') ?>
 </li>
-<?php endif; ?>

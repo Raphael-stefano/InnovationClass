@@ -1,17 +1,15 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
 
-
+        <!-- HEADER -->
 
         <referenceBlock name="logo">
             <arguments>
-                <!-- <argument name="logo_file" xsi:type="string">images/my_logo.png</argument> -->
                 <argument name="logo_width" xsi:type="number">148</argument>
                 <argument name="logo_height" xsi:type="number">26</argument>
                 <argument name="logo_alt" xsi:type="string">Avanti</argument>
             </arguments>
         </referenceBlock>
-
 
         <referenceContainer name="header.panel">
             <container name="promo.header.wrapper" htmlClass="promo-wrapper" htmlTag="div">
@@ -20,19 +18,67 @@
         </referenceContainer>
 
         <move element="header.links" destination="header-wrapper" before="minicart"/>
-        
-        <!-- <move element="minicart" destination="header-wrapper" after="-"/> -->
 
         <referenceBlock name="header.links">
                 <block class="Magento\Framework\View\Element\Template" name="header.links.or" template="Magento_Theme::html/or.phtml" after="authorization-link"/>
         </referenceBlock>
 
-        <referenceContainer name="navigation.sections">
-            <block class="Magento\Framework\View\Element\Template"
-                name="clone.links"
-                template="Magento_Theme::custom/clone_links.phtml"
-                before="-"/>
+         <!-- FOOTER -->
+
+        <!-- remove os links nativos do tema -->
+        <referenceBlock name="footer_links" remove="true"/>
+
+        <referenceBlock name="copyright" remove="true"/>
+
+
+        <referenceContainer name="footer">
+            <container name="footer.rows.wrapper" 
+                    label="Footer rows Wrapper" 
+                    htmlTag="div" 
+                    htmlClass="footer-rows-wrapper">
+
+                <!-- linha 1: bloco CMS -->
+                <block class="Magento\Cms\Block\Block" name="footer_row_1">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_row_1</argument>
+                    </arguments>
+                </block>
+
+                <!-- linha 2: bloco .phtml -->
+                <!-- FALTA CRIAR ESSE ARQUIVO PHTML -->
+                <block class="Magento\Framework\View\Element\Template" 
+                    name="flag.cards" 
+                    template="Magento_Theme::html/flags-cards.phtml" />
+
+
+            </container>
         </referenceContainer>
+
+        <referenceContainer name="before.body.end">
+
+            <block class="Magento\Cms\Block\Block" name="text_copy">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">text_copy</argument>
+                </arguments>
+            </block>
+
+            <block class="Magento\Framework\View\Element\Template" 
+                name="stamps-partners" 
+                template="Magento_Theme::html/stamps-partners.phtml" 
+                after="-" />
+        </referenceContainer>
+
+
+        <!-- cria um container dentro do main content para adicionar a newsletter  -->
+        <referenceContainer name="main.content">
+            <container name="footer.newsletter" 
+                    label="Footer Columns Wrapper" 
+                    htmlTag="div" 
+                    htmlClass="footer-columns-wrapper"/>
+        </referenceContainer>
+
+        <!-- move a newsletter para o container criado -->
+        <move element="form.subscribe" destination="footer.newsletter" before="-"/>
 
     </body>
 </page>

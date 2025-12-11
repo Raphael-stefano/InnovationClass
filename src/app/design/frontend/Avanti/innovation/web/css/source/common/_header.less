@@ -48,6 +48,17 @@
             .action.showcart{
                 .lib-css(width, 25px);
                 .lib-css(height, 24px);
+
+                .counter.qty {
+                    position: absolute;
+                    top: -14px;
+                    right: -10px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                }
             }
 
             .action.showcart::before{
@@ -110,6 +121,10 @@
                     .lib-css(top, 240%);
                     
                     .lib-css(transform, translateX(calc(-88.5vw + 48px)));
+
+                    /*&:has(input[aria-expanded="true"]){
+                        .lib-css(padding-bottom, 500px);
+                    }*/
                 }
 
                 .field.search .label::before {
@@ -145,7 +160,7 @@
                     .lib-css(border-radius, 10px);
                     .lib-css(padding, 20px);
                     .lib-css(width, 92.5vw);
-                    .lib-css(margin, 0)
+                    .lib-css(margin, 0);
                 }
             }
 
@@ -220,6 +235,12 @@
                 .lib-css(margin, 0);
             }
         }
+        .header.content:has(a[href*="customer/account/logout"]){
+            .compare.wrapper{
+                //.lib-css(width, 6%);
+                .lib-css(display, none);
+            }
+        }
         .header.content{
 
             // LEMBRAR DE USAR A PROPRIEDADE ORDER DO FLEX PARA ALTERAR A ORDEM DOS COMPONENTES SEM TER QUE MEXER NO XML
@@ -254,6 +275,17 @@
             .action.showcart{
                 .lib-css(width, 30px);
                 .lib-css(height, 30px);
+
+                 .counter.qty {
+                    position: absolute;
+                    top: -14px;
+                    right: -10px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                }
             }
 
             .action.showcart::before{
@@ -268,6 +300,34 @@
             }
 
             .header.links{
+
+                &:has(a[href*="customer/account/logout"]) {
+                        .header-links-or{
+                        .lib-css(display, none);
+                    }
+                    
+                    .customer-welcome{
+                        
+                    }
+
+                    .customer-welcome.active{
+                        .customer-menu{
+                            ul.header.links{
+                                .lib-css(flex-direction, column);
+                                .lib-css(align-items, start);
+
+                                li{
+                                    .lib-css(width, calc(100% - 4px));
+                                }
+                                
+                                &::before{
+                                    .lib-css(display, none);
+                                }
+                            }
+                        }
+                    }
+                }
+
                 .lib-css(display, flex);
                 .lib-css(align-items, center);
                 .lib-css(list-style, none);
@@ -277,18 +337,17 @@
                 .lib-css(order, 3);
                 
                 .greet.welcome{
-                    .lib-css(display, none);
+                    
+
+                    .not-logged-in{
+                        .lib-css(display, none);
+                    }
                 }
 
                 a{
                     .lib-css(color, black);
                     .lib-css(font-family, @font-family-name__base);
                 };
-                    
-
-                .not-logged-in{
-                    .lib-css(display, none);
-                }
 
                 &::before{
                     content: '';
